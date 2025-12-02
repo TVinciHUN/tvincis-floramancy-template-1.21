@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "floramancy",
+	"version": "${version}",
+	"name": "TVinci's Floramancy",
+	"description": "TVinci's Floral Necromancy for... Floral Necromancy",
+	"authors": [
+		"TVinci"
+	],
+	"contact": {
+		"homepage": "westandbiz@gmail.com",
+		"sources": "https://github.com"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/floramancy/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.tvinci.floramancy.TVincisFloramancy"
+		],
+		"fabric-datagen": [
+			"net.tvinci.floramancy.TVincisFloramancyDataGenerator"
+		],
+        "Client": [
+          "net.tvinci.floramancy.TVincisFloramancyClient"
+        ]
+	},
+	"mixins": [
+		"floramancy.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.1",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
