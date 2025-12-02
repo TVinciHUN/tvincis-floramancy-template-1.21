@@ -2,6 +2,7 @@ package net.tvinci.floramancy;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.tvinci.floramancy.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +12,6 @@ public class TVincisFloramancy implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+        ModItems.registerModItems();
 	}
 }
