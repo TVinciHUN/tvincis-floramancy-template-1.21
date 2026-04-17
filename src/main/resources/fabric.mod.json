@@ -3,13 +3,13 @@
 	"id": "floramancy",
 	"version": "${version}",
 	"name": "TVinci's Floramancy",
-	"description": "TVinci's Floral Necromancy for... Floral Necromancy",
+	"description": "TVinci's Floramancy for floral necromancy",
 	"authors": [
 		"TVinci"
 	],
 	"contact": {
 		"homepage": "westandbiz@gmail.com",
-		"sources": "https://github.com"
+		"sources": "https://github.com/TVinciHUN/tvincis-floramancy-template-1.21"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/floramancy/icon.png",
