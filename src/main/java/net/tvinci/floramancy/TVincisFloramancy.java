@@ -40,15 +40,9 @@ public class TVincisFloramancy implements ModInitializer {
                 }
             }
         });
-
-
-        //ModelPredicateProviderRegistry.register(ModItems.SOUL_CRYSTAL, Identifier.of("souls"), (stack, world, entity, seed) -> 10.0f);
-            //int souls = stack.getOrDefault(ModDataComponentTypes.SOULS, 0);
-            //return (float) souls;
-
         ModelPredicateProviderRegistry.register(ModItems.SOUL_CRYSTAL, Identifier.of("floramancy", "souls"), (stack, world, entity, seed) -> {
-            System.out.println("Game is checking value of souls!");
-            return 10.0f;
+            float souls = (float) stack.getOrDefault(ModDataComponentTypes.SOULS, 0) / 10;
+            return (float) souls;
         });
     }
 }

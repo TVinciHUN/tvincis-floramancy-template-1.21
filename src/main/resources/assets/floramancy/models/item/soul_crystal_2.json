@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "floramancy:item/raw_pink_garnet"
+    "layer0": "floramancy:item/soul_crystal_2"
   }
 }

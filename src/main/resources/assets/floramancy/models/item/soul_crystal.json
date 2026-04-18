@@ -4,11 +4,15 @@
     "layer0": "floramancy:item/soul_crystal"
   },
   "overrides": [
-    {
-      "predicate": {
-        "floramancy:souls": 9.9
-      },
-      "model": "floramancy:item/soul_crystal_10"
-    }
+    {"predicate": {"floramancy:souls": 0.1}, "model": "floramancy:item/soul_crystal_1"},
+    {"predicate": {"floramancy:souls": 0.2}, "model": "floramancy:item/soul_crystal_2"},
+    {"predicate": {"floramancy:souls": 0.3}, "model": "floramancy:item/soul_crystal_3"},
+    {"predicate": {"floramancy:souls": 0.4}, "model": "floramancy:item/soul_crystal_4"},
+    {"predicate": {"floramancy:souls": 0.5}, "model": "floramancy:item/soul_crystal_5"},
+    {"predicate": {"floramancy:souls": 0.6}, "model": "floramancy:item/soul_crystal_6"},
+    {"predicate": {"floramancy:souls": 0.7}, "model": "floramancy:item/soul_crystal_7"},
+    {"predicate": {"floramancy:souls": 0.8}, "model": "floramancy:item/soul_crystal_8"},
+    {"predicate": {"floramancy:souls": 0.9}, "model": "floramancy:item/soul_crystal_9"},
+    {"predicate": {"floramancy:souls": 1}, "model": "floramancy:item/soul_crystal_10"}
   ]
 }
