@@ -54,8 +54,6 @@ public class SoulCrystalItem extends Item {
 
 
                     player.sendMessage(Text.literal("§1[▐▐▐▐▐▐▐▐▐▐ ]§r"), true);
-                    //String bar = "§1" + "▐".repeat(souls) + "§8" + "▐".repeat(10 - souls);
-                    //player.sendMessage(Text.literal("§8[" + bar + "§8]§r"), true);
                 }
 
                 return ActionResult.PASS;
@@ -83,7 +81,7 @@ public class SoulCrystalItem extends Item {
 
         int maxSouls = 10;
         String bar = "§b" + "▐".repeat(souls) + "§8" + "▐".repeat(maxSouls - souls);
-        tooltip.add(Text.literal("§8[" + bar + "§8]§r"));
+        tooltip.add(Text.literal("§8[" + bar + " §8]§r"));
 
         super.appendTooltip(stack, context, tooltip, type);
     }

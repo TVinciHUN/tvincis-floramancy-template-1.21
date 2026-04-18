@@ -2,5 +2,13 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "floramancy:item/soul_crystal"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "floramancy:souls": 9.9
+      },
+      "model": "floramancy:item/soul_crystal_10"
+    }
+  ]
 }

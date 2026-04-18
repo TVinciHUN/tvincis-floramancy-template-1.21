@@ -3,10 +3,11 @@ package net.tvinci.floramancy;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.tvinci.floramancy.component.ModDataComponentTypes;
 import net.tvinci.floramancy.item.ModItems;
 import net.tvinci.floramancy.item.custom.SoulCrystalItem;
@@ -39,8 +40,15 @@ public class TVincisFloramancy implements ModInitializer {
                 }
             }
         });
-	}
 
 
+        //ModelPredicateProviderRegistry.register(ModItems.SOUL_CRYSTAL, Identifier.of("souls"), (stack, world, entity, seed) -> 10.0f);
+            //int souls = stack.getOrDefault(ModDataComponentTypes.SOULS, 0);
+            //return (float) souls;
 
+        ModelPredicateProviderRegistry.register(ModItems.SOUL_CRYSTAL, Identifier.of("floramancy", "souls"), (stack, world, entity, seed) -> {
+            System.out.println("Game is checking value of souls!");
+            return 10.0f;
+        });
+    }
 }

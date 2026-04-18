@@ -21,7 +21,7 @@
 		"fabric-datagen": [
 			"net.tvinci.floramancy.TVincisFloramancyDataGenerator"
 		],
-        "Client": [
+        "client": [
           "net.tvinci.floramancy.TVincisFloramancyClient"
         ]
 	},

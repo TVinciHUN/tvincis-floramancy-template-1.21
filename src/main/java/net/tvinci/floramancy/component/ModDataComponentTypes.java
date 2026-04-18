@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.component.ComponentType;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
+import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -13,7 +14,7 @@ import java.util.function.UnaryOperator;
 
 public class ModDataComponentTypes {
 
-    public static final ComponentType<Integer> SOULS = register("souls", builder -> builder.codec(Codec.INT).cache());
+    public static final ComponentType<Integer> SOULS = register("souls", builder -> builder.codec(Codec.INT).packetCodec(PacketCodecs.VAR_INT).cache());
 
     private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
         return Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(TVincisFloramancy.MOD_ID, name),
