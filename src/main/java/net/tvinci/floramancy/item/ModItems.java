@@ -6,6 +6,7 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.tvinci.floramancy.TVincisFloramancy;
 import net.tvinci.floramancy.item.custom.ChiselItem;
 import net.tvinci.floramancy.item.custom.SoulCrystalItem;
@@ -13,7 +14,7 @@ import net.tvinci.floramancy.item.custom.SoulCrystalItem;
 public class ModItems {
     public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()));
     public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet", new Item(new Item.Settings()));
-    public static final Item SOUL_CRYSTAL = registerItem("soul_crystal", new SoulCrystalItem(new Item.Settings()));
+    public static final Item SOUL_CRYSTAL = registerItem("soul_crystal", new SoulCrystalItem(new Item.Settings().rarity(Rarity.RARE)));
     public static final Item INFUSED_BONEMEAL = registerItem("infused_bonemeal", new Item(new Item.Settings()));
 
     public static final Item CHISEL = registerItem("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));
@@ -28,7 +29,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(PINK_GARNET);
             fabricItemGroupEntries.add(RAW_PINK_GARNET);
-            fabricItemGroupEntries.add(SOUL_CRYSTAL);
             fabricItemGroupEntries.add(INFUSED_BONEMEAL);
         });
     }

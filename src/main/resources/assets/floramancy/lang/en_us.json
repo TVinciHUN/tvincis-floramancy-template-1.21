@@ -3,8 +3,6 @@
   "item.floramancy.raw_pink_garnet": "Raw Pink Garnet",
   "item.floramancy.soul_crystal": "Soul Crystal",
   "item.floramancy.infused_bonemeal": "Infused Bone Meal",
-  "item.floramancy.chisel": "Chisel",
+  "item.floramancy.chisel": "Chisel"
 
-  "tooltip.floramancy.soul_crystal.tooltip": "§8Souls collected §b3§8/10§r",
-  "tooltip.floramancy.soul_crystal.tooltip.2": "§8[§b▐▐▐§8▐▐▐▐▐▐▐§8]§r"
 }
