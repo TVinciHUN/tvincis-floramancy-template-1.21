@@ -9,8 +9,10 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.tvinci.floramancy.component.ModDataComponentTypes;
+import net.tvinci.floramancy.effect.ModEffects;
 import net.tvinci.floramancy.item.ModItems;
 import net.tvinci.floramancy.item.custom.SoulCrystalItem;
+import net.tvinci.floramancy.util.DisplayingMeters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,28 +23,10 @@ public class TVincisFloramancy implements ModInitializer {
 	@Override
 	public void onInitialize() {
         ModItems.registerModItems();
+        ModEffects.registerEffects();
 
         ModDataComponentTypes.registerDataComponentTypes();
 
-        ServerTickEvents.END_SERVER_TICK.register(server -> {
-            for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
-                ItemStack mainHand = player.getMainHandStack();
-
-                if (mainHand.getItem() instanceof SoulCrystalItem) {
-                    int souls = mainHand.getOrDefault(ModDataComponentTypes.SOULS, 0);
-                    int maxSouls = 10;
-
-                    String bar = "§b" + "▐".repeat(souls) + "§8" + "▐".repeat(maxSouls - souls);
-                    player.sendMessage(Text.literal("§8[" + bar + " §8]§r"), true);
-                }
-                else {
-                    player.sendMessage(Text.literal(""), true);
-                }
-            }
-        });
-        ModelPredicateProviderRegistry.register(ModItems.SOUL_CRYSTAL, Identifier.of("floramancy", "souls"), (stack, world, entity, seed) -> {
-            float souls = (float) stack.getOrDefault(ModDataComponentTypes.SOULS, 0) / 10;
-            return (float) souls;
-        });
+        DisplayingMeters.DisplaySoulMeter();
     }
 }

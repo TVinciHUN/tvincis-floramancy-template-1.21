@@ -3,6 +3,8 @@
   "item.floramancy.raw_pink_garnet": "Raw Pink Garnet",
   "item.floramancy.soul_crystal": "Soul Crystal",
   "item.floramancy.infused_bonemeal": "Infused Bone Meal",
-  "item.floramancy.chisel": "Chisel"
+  "item.floramancy.chisel": "Chisel",
+
+  "effect.floramancy.itching": "Itching"
 
 }
