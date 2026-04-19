@@ -2,18 +2,14 @@ package net.tvinci.floramancy;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.minecraft.client.item.ModelPredicateProviderRegistry;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.tvinci.floramancy.block.ModBlocks;
 import net.tvinci.floramancy.component.ModDataComponentTypes;
 import net.tvinci.floramancy.effect.ModEffects;
+import net.tvinci.floramancy.entity.ModEntities;
+import net.tvinci.floramancy.entity.custom.VesselEntity;
 import net.tvinci.floramancy.item.ModItemGroups;
 import net.tvinci.floramancy.item.ModItems;
-import net.tvinci.floramancy.item.custom.SoulCrystalItem;
 import net.tvinci.floramancy.util.DisplayingMeters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,9 +24,12 @@ public class TVincisFloramancy implements ModInitializer {
         ModItemGroups.registerItemGroups();
         ModBlocks.registerModBlocks();
         ModEffects.registerEffects();
+        ModEntities.registerModEntities();
 
         ModDataComponentTypes.registerDataComponentTypes();
 
         DisplayingMeters.DisplaySoulMeter();
+
+        FabricDefaultAttributeRegistry.register(ModEntities.VESSEL, VesselEntity.createAttributes());
     }
 }
