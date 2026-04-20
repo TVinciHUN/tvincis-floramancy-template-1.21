@@ -2,7 +2,9 @@ package net.tvinci.floramancy;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.util.ActionResult;
 import net.tvinci.floramancy.block.ModBlocks;
 import net.tvinci.floramancy.component.ModDataComponentTypes;
 import net.tvinci.floramancy.effect.ModEffects;

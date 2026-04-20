@@ -1,34 +1,46 @@
 package net.tvinci.floramancy.entity.custom;
 
 import net.minecraft.entity.AnimationState;
+import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.WanderAroundGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class VesselEntity extends AnimalEntity {
+import java.util.Optional;
+
+public class VesselEntity extends TameableEntity{
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    public VesselEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public VesselEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     protected void initGoals() {
-        //this.goalSelector.add(0, new LookAroundGoal(this));
-        this.goalSelector.add(0, new WanderAroundGoal(this, 0.5f));
-        this.goalSelector.add(0, new LookAtEntityGoal(this, PlayerEntity.class, 4.0f));
+        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 4.0f));
+        this.goalSelector.add(2, new FollowOwnerGoal(this, 1f, 10f, 2f));
+        this.goalSelector.add(3, new MeleeAttackGoal(this, 1.0, true));
+        this.goalSelector.add(4, new LookAroundGoal(this));
+        this.goalSelector.add(4, new WanderAroundGoal(this, 0.5f));
+        this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
+        this.targetSelector.add(2, new AttackWithOwnerGoal(this));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
@@ -44,6 +56,25 @@ public class VesselEntity extends AnimalEntity {
             this.idleAnimationState.start(this.age);
         } else {
             --this.idleAnimationTimeout;
+        }
+    }
+
+    @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        World world = this.getWorld();
+        if (!world.isClient()) {
+            this.setOwner(player);
+            this.setTamed(true, true   );
+            return ActionResult.SUCCESS;
+        }
+        return ActionResult.PASS;
+    }
+
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        if (this.getOwnerUuid() != null) {
+            nbt.putUuid("Owner", this.getOwnerUuid());
         }
     }
 
@@ -66,3 +97,4 @@ public class VesselEntity extends AnimalEntity {
         return null;
     }
 }
+
