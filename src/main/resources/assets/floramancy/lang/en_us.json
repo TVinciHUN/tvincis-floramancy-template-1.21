@@ -8,5 +8,8 @@
 
   "entity.floramancy.vessel": "Vessel",
 
-  "itemgroup.floramancy.floramancy": "TVinci's Floramancy"
+  "itemgroup.floramancy.floramancy": "TVinci's Floramancy",
+
+  "advancements.husbandry.custom_tame.title": "It's Alive!",
+  "advancements.husbandry.custom_tame.description": "Infuse a vessel with soul"
 }

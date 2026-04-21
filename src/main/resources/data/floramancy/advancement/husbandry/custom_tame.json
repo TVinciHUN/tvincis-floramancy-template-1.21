@@ -1,0 +1,33 @@
+{
+  "criteria": {
+    "tame_custom_entity": {
+      "trigger": "minecraft:tame_animal",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "floramancy:vessel"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "floramancy:soul_crystal",
+      "count": 1,
+      "components": {
+        "floramancy:souls": 10
+      }
+    },
+    "title": {
+      "translate": "advancements.husbandry.custom_tame.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.custom_tame.description"
+    }
+  }
+}
